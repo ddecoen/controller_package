@@ -35,6 +35,7 @@ func readCSVFile(filename string) ([][]string, error) {
 
 	reader := csv.NewReader(file)
 	reader.FieldsPerRecord = -1
+	reader.LazyQuotes = true  // Fix for bare quotes in CSV fields
 
 	// Skip the first 10 rows (rows 1-10), start reading from row 11
 	for i := 0; i < 10; i++ {
