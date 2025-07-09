@@ -80,9 +80,19 @@ func main() {
 		}
 	}
 	if len(availableFiles) == 0 {
-		fmt.Println("\nNo MoM_BS.csv or MoM_IS.csv files found.")
-		fmt.Println("Please ensure these files are in the current directory.")
-		fmt.Println("Note: Data will be read starting from row 11 (skipping first 10 rows).")
+		fmt.Println("\n❌ No required CSV files found.")
+		fmt.Println("\n📋 REQUIRED FILES:")
+		fmt.Println("   • MoM_BS.csv  (Balance Sheet data from NetSuite)")
+		fmt.Println("   • MoM_IS.csv  (Income Statement data from NetSuite)")
+		fmt.Println("\n📁 UPLOAD INSTRUCTIONS:")
+		fmt.Println("   1. Export your month-over-month reports from NetSuite as CSV files")
+		fmt.Println("   2. Save/copy the files to this directory with the exact names above")
+		fmt.Println("   3. Run this converter again: ./controller_package")
+		fmt.Println("\n💡 IMPORTANT NOTES:")
+		fmt.Println("   • File names are case-sensitive (MoM_BS.csv, MoM_IS.csv)")
+		fmt.Println("   • Data will be read starting from row 11 (first 10 rows skipped)")
+		fmt.Println("   • Files should contain NetSuite month-over-month comparative data")
+		fmt.Println("\n🔄 After uploading files, run: ./controller_package")
 		return
 	}
 	f := excelize.NewFile()
@@ -114,5 +124,12 @@ func main() {
 		fmt.Printf("  ✓ Added as '%s' sheet (%d data rows, starting from row 11)\n", fileMap.SheetName, len(data))
 	}
 	f.SaveAs("coder_financial_package.xlsx")
-	fmt.Println("Created coder_financial_package.xlsx")
+	fmt.Printf("\n✓ Successfully created: coder_financial_package.xlsx\n")
+	fmt.Println("\n🎉 Month-end financial package conversion completed!")
+	fmt.Println("\n📄 Your Excel file contains:")
+	fmt.Println("   • Balance Sheet (month-over-month comparative analysis)")
+	fmt.Println("   • Income Statement (month-over-month variance analysis)")
+	fmt.Println("   • Flux analysis data from NetSuite")
+	fmt.Println("\n🗑️ CLEANUP: You can now delete the CSV files if desired.")
+	fmt.Println("🔄 NEXT TIME: Upload new CSV files and run ./controller_package again.")
 }

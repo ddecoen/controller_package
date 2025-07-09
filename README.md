@@ -89,13 +89,38 @@ python3 csv_to_excel_converter.py
 
 ## Usage Workflow
 
+### Step-by-Step Process:
+
 1. **Export CSV files from NetSuite**
-2. **Place CSV files in the controller_package directory**
-3. **Open Terminal/Command Prompt and navigate to the project directory**
-4. **Run the converter:**
-   - Go version: `./controller_package` (or `controller_package.exe` on Windows)
-   - Python version: `python csv_to_excel_converter.py`
-5. **Review the generated Excel file:** `coder_financial_package.xlsx`
+   - Export your month-over-month Balance Sheet report as CSV
+   - Export your month-over-month Income Statement report as CSV
+
+2. **Upload/Save CSV files to the project directory**
+   - Save Balance Sheet CSV as: `MoM_BS.csv`
+   - Save Income Statement CSV as: `MoM_IS.csv`
+   - **Important:** File names are case-sensitive
+   - **Note:** Data should start at row 11 (first 10 rows will be skipped)
+
+3. **Run the converter:**
+   ```bash
+   # Go version (recommended)
+   ./controller_package  # macOS/Linux
+   controller_package.exe  # Windows
+   
+   # Python version (alternative)
+   python csv_to_excel_converter.py
+   ```
+
+4. **Review the generated Excel file:** `coder_financial_package.xlsx`
+
+5. **Cleanup (optional):**
+   - Delete the CSV files after successful conversion
+   - Keep the Excel file for your analysis
+
+### For Next Month:
+- Simply upload new CSV files with the same names
+- Run the converter again
+- Get a fresh Excel package with updated data
 
 ## Requirements
 
